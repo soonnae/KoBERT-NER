@@ -184,10 +184,11 @@ def convert_examples_to_features(examples, max_seq_len, tokenizer,
         if ex_index < 5:
             logger.info("*** Example ***")
             logger.info("guid: %s" % example.guid)
-            logger.info("tokens: %s" % " ".join([str(x) for x in tokens]))
+            # Avoid logging sensitive information directly
+            logger.info("tokens: [REDACTED]")
             logger.info("input_ids: %s" % " ".join([str(x) for x in input_ids]))
             logger.info("attention_mask: %s" % " ".join([str(x) for x in attention_mask]))
-            logger.info("token_type_ids: %s" % " ".join([str(x) for x in token_type_ids]))
+            logger.info("token_type_ids: [REDACTED]")
             logger.info("label: %s " % " ".join([str(x) for x in label_ids]))
 
         features.append(
